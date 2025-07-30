@@ -3,10 +3,10 @@ import React from "react";
 export function Other(): React.JSX.Element {
     return (
         <>
-            <div className="text-4xl font-bold text-white text-center">
+            <div className="text-4xl font-bold text-white text-center py-10">
                 Tech Stack
             </div>
-            <div className="grid grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                 {skills.map((s, i) => (
                     <Skill key={i} {...s} />
                 ))}
@@ -62,14 +62,6 @@ const skills: SkillProps[] = [
     }
 
 ]
-
-const javaSkill: SkillProps = {
-    skill: "Java",
-    experience: "2 years",
-    notableProject: "Hubbly",
-    url: "https://github.com/calrl/Hubbly",
-    strength: 4
-}
 
 type Strength = 1 | 2 | 3 | 4 | 5;
 type SkillProps = {

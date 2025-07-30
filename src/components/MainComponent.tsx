@@ -31,6 +31,7 @@ export const MainComponent: React.FC = () => {
   // }, []);
 
   // const color = getColor(discordStatus);
+  const hoverStyle = `hover:text-gray-500 duration-200`
   return (
     <div className="main flex-nowrap mx-auto max-w-sm md:max-w-2xl lg:max-w-4xl">
       <div className="mt-[5%] h-full ">
@@ -39,22 +40,22 @@ export const MainComponent: React.FC = () => {
 
         </div>
         <div>
-    <div className={"flex space-y-4 text-white"}>
-      <button>
+    <div className={"flex space-x-4 text-white justify-center"}>
+      <button className={hoverStyle}>
         <Link to={{
           pathname: "/",
         }} >
         About
         </Link>
       </button>
-      <button>
+      <button className={hoverStyle}>
         <Link to={{
           pathname: "/projects",
         }}>
         Projects
       </Link>
       </button>
-      <button>
+      <button className={hoverStyle}>
         <Link to={{
           pathname: "/other",
         }}>
