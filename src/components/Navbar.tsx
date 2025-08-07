@@ -17,14 +17,15 @@ export function Navbar() {
             </Link>
 
             <Link className={hoverStyle} to={{
+                pathname: "/now",
+            }}>
+                Now
+            </Link>
+
+            <Link className={hoverStyle} to={{
                 pathname: "/other",
             }}>
                 Other
-            </Link>
-            <Link className={hoverStyle} to={{
-                pathname: "/photos",
-            }}>
-                Photos
             </Link>
         </>
 

@@ -1,5 +1,4 @@
 import {RenderIcon, type RenderIconProps} from "./Icons";
-import {useState} from "react";
 
 export type ProjectProps = {
     name: string,
@@ -11,6 +10,7 @@ export type ProjectProps = {
     coverOrContain: "object-cover" | "object-contain"
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function getImage(props: ProjectProps): React.JSX.Element {
     return (
         <div className="aspect-video w-full bg-black relative">
