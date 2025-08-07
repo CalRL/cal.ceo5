@@ -1,4 +1,5 @@
 import {WebStack} from "./WebStack.tsx";
+import {NowComponent} from "./NowComponent.tsx";
 
 export function AboutComponent() {
   return (
@@ -82,14 +83,7 @@ export function AboutComponent() {
           </div>
           <SectionDivider />
           <div>
-            <div className="font-semibold">now</div>
-            <div>
-              <span className="leading-relaxed">
-                now, i&#39;m working on my plugin Hubbly, working on a project
-                with 800+ users, working on a elderly care product, and learning
-                <span className="text-[#B94700]"> rust</span>.
-              </span>
-            </div>
+            <NowComponent />
           </div>
         </div>
       </div>

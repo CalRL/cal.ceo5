@@ -3,7 +3,9 @@ import "../App.css";
 import { AboutComponent } from "./AboutComponent";
 import Projects from "./Projects.tsx";
 import {Other} from "./Other.tsx";
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Navbar} from "./Navbar.tsx";
+import { PhotosComponent } from "./PhotosComponent.tsx";
 
 // const url = "https://api.lanyard.rest/v1/users/242276511028084738";
 
@@ -31,7 +33,7 @@ export const MainComponent: React.FC = () => {
   // }, []);
 
   // const color = getColor(discordStatus);
-  const hoverStyle = `hover:text-gray-500 duration-200`
+
   return (
     <div className="main flex-nowrap mx-auto max-w-sm md:max-w-2xl lg:max-w-4xl">
       <div className="mt-[5%] h-full ">
@@ -41,27 +43,7 @@ export const MainComponent: React.FC = () => {
         </div>
         <div>
     <div className={"flex space-x-4 text-white justify-center"}>
-      <button className={hoverStyle}>
-        <Link to={{
-          pathname: "/",
-        }} >
-        About
-        </Link>
-      </button>
-      <button className={hoverStyle}>
-        <Link to={{
-          pathname: "/projects",
-        }}>
-        Projects
-      </Link>
-      </button>
-      <button className={hoverStyle}>
-        <Link to={{
-          pathname: "/other",
-        }}>
-        Other
-      </Link>
-      </button>
+      <Navbar />
     </div>
 
 
@@ -71,6 +53,7 @@ export const MainComponent: React.FC = () => {
             <Route path={"/"} element={<AboutComponent />} />
             <Route path={"/projects"} element={<Projects />} />
             <Route path={"/other"} element={<Other/>} />
+            <Route path={"/photos"} element={< PhotosComponent />}/>
           </Routes>
 
         </BrowserRouter>
