@@ -1,43 +1,8 @@
 import { PiVinylRecord } from "react-icons/pi";
 import { useEffect, useState } from "react";
-import type { Spotify, SpotifyResponse } from "../types/Spotify.ts";
+import type {SpotifyArtist, SpotifyCurrentlyPlaying, SpotifyResponse, SpotifyTrack} from "../types/Spotify.ts";
 
 export function SpotifyComponent() {
-    const [error, setError] = useState(false);
-    const [data, setData] = useState<Spotify | null>(null);
-
-    // const color = " #7FFF00"
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const res = await fetch("http://localhost:3000/api/discord/spotify", {
-                    headers: {
-                        "Cache-Control": "no-cache",
-                    },
-                });
-
-                const json: SpotifyResponse = await res.json();
-
-                if (!json.success || !json.spotify) {
-                    setError(true);
-                    return;
-                }
-
-                setData(json.spotify);
-            } catch (err) {
-                console.error(err);
-                setError(true);
-            }
-        }
-
-        fetchData();
-    }, []);
-
-    if (error) return <div>Failed to load Spotify info.</div>;
-
-    if (!data) return <div>Loading...</div>;
-
     return (
         <div className="flex">
             <img
@@ -47,24 +12,86 @@ export function SpotifyComponent() {
             />
             <div className="flex items-center gap-2 text-white">
 
-                <PiVinylRecord
-                    style={{
-                        animation: "spin 5s linear infinite",
-                    }}
-                />
-                <span>
-                {data.song}
-            </span>
-
-                <span className="text-gray-400">
-                by {data.artist}
-            </span>
+                <MessageComponent />
             </div>
         </div>
 
     );
 }
 
-export function SpotifyComsponent() {
+export function MessageComponent() {
+    const [error, setError] = useState(false);
+    const [data, setData] = useState<SpotifyCurrentlyPlaying | null>(null);
+    const [item, setItem] = useState<SpotifyTrack | null>(null);
 
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const res = await fetch("http://localhost:3000/api/spotify", {
+                    headers: {
+                        "Cache-Control": "no-cache",
+                    },
+                });
+
+                const json: SpotifyResponse = await res.json();
+
+                const spotifyData = json.data;
+                if (!spotifyData) {
+                    console.log(json);
+                    setError(true);
+                    return;
+                }
+
+                setData(spotifyData);
+                if(!spotifyData.item) {
+                    setError(true);
+                    return;
+                }
+
+                setItem(spotifyData.item);
+            } catch (err) {
+                console.error(err);
+                setError(true);
+            }
+        }
+
+        fetchData();
+    }, []);
+
+    console.log(data)
+    if(!data || error || !item) {
+        return(
+            <div>Not listening to anything.</div>
+        )
+    }
+    console.log(item.artists);
+    return(
+        <>
+            <PiVinylRecord
+                style={{
+                    animation: "spin 5s linear infinite",
+                }}
+            />
+
+            <a href={item.external_urls.spotify} target={"_blank"}>{item.name}</a>
+            <span className="text-gray-400">
+                by {formatArtists(item.artists)}
+            </span>
+        </>
+    )
+}
+
+function formatArtists(artists: SpotifyArtist[]) {
+
+    if(artists.length < 1) {
+        return "";
+    }
+
+    if(artists.length === 1) {
+        return `${artists[0].name}`;
+    }
+
+    if(artists.length > 1) {
+        return `${artists[0].name}...`;
+    }
 }
