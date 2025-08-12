@@ -5,7 +5,7 @@ import {api} from "../axios";
 
 export function SpotifyComponent() {
     return (
-        <div className="flex">
+        <div className="flex justify-center pt-4 xl:pt-0 xl:justify-start">
             <img
                 src="/spotify-logo.svg"
                 alt="Spotify Logo"

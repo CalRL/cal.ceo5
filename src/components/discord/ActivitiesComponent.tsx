@@ -36,7 +36,7 @@ export function ActivitiesComponent() {
     if (!data || error) return <div>Loading...</div>;
     console.log(data);
     return (
-        <div className={"space-y-4 "}>
+        <div className={"space-y-4"}>
             {data.map((activity: Activity) => {
                 if (activity.name.toLowerCase() === "spotify") return null;
 
