@@ -3,19 +3,11 @@
  * i think i'll make an npm package out of this someday
  */
 
-import {
-  SiTypescript,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiChakraui,
-  SiSpigotmc,
-  SiRust,
-  SiMediapipe,
-} from "react-icons/si";
+import {SiChakraui, SiMediapipe, SiNextdotjs, SiRust, SiSpigotmc, SiTailwindcss, SiTypescript,} from "react-icons/si";
 
-import { FaJava, FaPython, FaNodeJs, FaReact } from "react-icons/fa6";
+import {FaJava, FaNodeJs, FaPython, FaReact} from "react-icons/fa6";
 
-import React, {type JSX} from "react";
+import {type JSX} from "react";
 
 // Define the possible icon names as a TypeScript type
 type IconName =

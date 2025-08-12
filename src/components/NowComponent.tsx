@@ -25,7 +25,7 @@ export function NowComponents() {
         </div>
     )
 }
-const defaultClasses = "bg-[#2C2F33] rounded-3xl text-white p-4 border-white/10 border text-center";
+// const defaultClasses = "bg-[#2C2F33] rounded-3xl text-white p-4 border-white/10 border text-center";
 export function NowComponent() {
     return (
         <>
