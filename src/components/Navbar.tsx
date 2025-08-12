@@ -10,6 +10,12 @@ export function Navbar() {
                 About
             </Link>
 
+            {/*<Link className={hoverStyle} to={{*/}
+            {/*    pathname: "/about",*/}
+            {/*}} >*/}
+            {/*    About*/}
+            {/*</Link>*/}
+
             <Link className={hoverStyle} to={{
                 pathname: "/projects",
             }}>

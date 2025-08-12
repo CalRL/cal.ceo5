@@ -5,6 +5,13 @@ body {
     background-color: #0B0C10;
 }
 
+@font-face {
+    font-family: 'Fields Black';
+    src: url('public/fonts/fields/fields-black.otf') format('opentype');
+    font-weight: 900; /* adjust based on font style */
+    font-style: normal;
+}
+
 @keyframes spin {
     from {
         transform: rotate(0deg);

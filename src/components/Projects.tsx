@@ -1,9 +1,11 @@
-import { RenderIcon, type RenderIconProps } from "./Icons";
 import {Project, type ProjectProps} from "./Project";
 import {
   csharpIconProps,
-  javaIconProps, mpIconProps, pythonIconProps,
-  rustIconProps, spigotIconProps,
+  javaIconProps,
+  mpIconProps,
+  pythonIconProps,
+  rustIconProps,
+  spigotIconProps,
   tailwindIconProps,
   typescriptIconProps
 } from "../icons/defaults";
@@ -12,7 +14,7 @@ export default function Projects() {
   return (
     <div className="h-full pt-16 pb-16">
       <div className="text-2xl lg:text-4xl text-center text-white">Public Projects</div>
-      <div className="items-center flex">
+      <div className="items-center flex justify-center">
         <div className="items-center grid xl:grid-cols-2 grid-cols-1">
           <Project {...HubblyProps} />
           <Project {...JACRProps} />

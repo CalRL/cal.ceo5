@@ -1,12 +1,10 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: 'https://cal.ceo',
+    baseURL: 'http://localhost:3000/api',
     headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache',
-        'Expires': '0',
+        'Cache-Control': 'no-cache',
     },
     timeout: 10000,
 });

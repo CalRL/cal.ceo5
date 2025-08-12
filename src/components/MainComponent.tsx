@@ -1,6 +1,6 @@
 import * as React from "react";
 import "../App.css";
-import { AboutComponent } from "./AboutComponent";
+import {AboutComponent} from "./AboutComponent";
 import Projects from "./Projects.tsx";
 import {Other} from "./Other.tsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
@@ -33,10 +33,10 @@ export const MainComponent: React.FC = () => {
   // }, []);
 
   // const color = getColor(discordStatus);
-
+// max-w-sm md:max-w-2xl lg:max-w-4xl
   return (
-    <div className="main flex-nowrap mx-auto max-w-sm md:max-w-2xl lg:max-w-4xl">
-      <div className="mt-[5%] h-full ">
+    <div className="main flex-nowrap mx-auto w-full ">
+      <div className="mt-4 lg:mt-8 h-full ">
         <BrowserRouter>
         <div className="flex justify-center md:justify-start mx-auto">
 
@@ -50,6 +50,7 @@ export const MainComponent: React.FC = () => {
         </div>
 
           <Routes>
+            {/*<Route path="/" element={<HomeComponent />} />*/}
             <Route path={"/"} element={<AboutComponent />} />
             <Route path={"/projects"} element={<Projects />} />
             <Route path={"/other"} element={<Other/>} />
