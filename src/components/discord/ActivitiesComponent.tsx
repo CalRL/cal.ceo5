@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import type {Activity} from "../../types/LanyardResponse.ts";
 import {ActivityComponent} from "./ActivityComponent.tsx";
+import {api} from "../../axios.ts";
 
 export function ActivitiesComponent() {
     const [data, setData] = useState<Activity[]>([]);
@@ -8,18 +9,18 @@ export function ActivitiesComponent() {
     useEffect(() => {
         async function getActivities() {
             try {
-                const res = await fetch("https://api.cal.ceo/api/discord/activities", {
+                const res = await api.get("/discord/activities", {
                     headers: {
                         "Cache-Control": "no-cache",
                     },
                 })
 
-                if (!res.ok) {
+                if (!res) {
                     setError(true);
                     return;
                 }
 
-                const json = await res.json();
+                const json = await res.data;
                 const activities = json.activities;
                 setData(activities);
             } catch (err) {

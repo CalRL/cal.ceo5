@@ -1,6 +1,7 @@
-import { PiVinylRecord } from "react-icons/pi";
-import { useEffect, useState } from "react";
+import {PiVinylRecord} from "react-icons/pi";
+import {useEffect, useState} from "react";
 import type {SpotifyArtist, SpotifyCurrentlyPlaying, SpotifyResponse, SpotifyTrack} from "../types/Spotify.ts";
+import {api} from "../axios";
 
 export function SpotifyComponent() {
     return (
@@ -27,13 +28,13 @@ export function MessageComponent() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await fetch("https://api.cal.ceo/api/spotify", {
+                const res = await api.get("/spotify", {
                     headers: {
                         "Cache-Control": "no-cache",
-                    },
+                    }
                 });
 
-                const json: SpotifyResponse = await res.json();
+                const json: SpotifyResponse = await res.data;
 
                 const spotifyData = json.data;
                 if (!spotifyData) {
