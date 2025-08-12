@@ -39,7 +39,7 @@ export function DiscordComponent() {
 
     const color = getColor(status)
     return (
-        <div className="bg-[#2C2F33] rounded-3xl p-4 text-white border-white/10 border">
+        <div className="bg-[#2C2F33] w-full rounded-3xl p-4 text-white border-white/10 border">
             <div className="flex space-x-4 items-center pb-2">
                 <img
                     className={`rounded-full border-4 avatar

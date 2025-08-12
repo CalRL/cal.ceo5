@@ -2,8 +2,8 @@ import {WebStack} from "./WebStack.tsx";
 
 export function AboutComponent() {
   return (
-    <div className="">
-      <div className="mx-auto lg:max-w-4xl sm:max-w-sm max-w-[65%]">
+    <div className="mb-16">
+      <div className="mx-auto lg:max-w-4xl sm:max-w-sm max-w-3/5">
         <div className="text-white xl:pb-16 pb-8 text-xl lg:text-3xl mt-[10%]">
           Hi 👋, I&#39;m cal
         </div>
@@ -77,19 +77,8 @@ export function AboutComponent() {
             </div>
           </div>
           <SectionDivider />
-          <div className="text-nowrap">
+          <div className="">
             <WebStack />
-          </div>
-          <SectionDivider />
-          <div>
-            <div className="font-semibold">now</div>
-            <div>
-              <span className="leading-relaxed">
-                now, i&#39;m working on my plugin Hubbly, working on a project
-                with 800+ users, working on a elderly care product, learning
-                <span className="text-[#B94700]">{" "}rust</span>, and working on a web project for creatives.
-              </span>
-            </div>
           </div>
         </div>
       </div>

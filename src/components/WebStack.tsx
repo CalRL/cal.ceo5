@@ -4,6 +4,8 @@ export function WebStack() {
     return (
         <>
             <SectionTitle title="web" />
+        <div className={"w-full xl:space-y-0 space-y-4"}>
+
             <div>
                 frontend: <span className="text-blue-400">react</span>,{" "}
                 <span className="text-[#06b6d4]">tailwind</span>,{" "}
@@ -27,6 +29,7 @@ export function WebStack() {
                 <span className="text-blue-300">tailwind</span>{" "}
                 and <span className={"text-orange-500"}>honojs</span>
             </div>
+        </div>
         </>
     )
 }
