@@ -6,9 +6,9 @@ import {DiscordComponent} from "./discord/DiscordComponent.tsx";
 export function NowComponent() {
     return (
         <>
-            <div className={"w-3/4 mx-auto pt-8 mb-4 xl:flex xl:mx-4 xl:space-x-4 xl:mb-0"}>
+            <div className={"max-w-3/4 mx-auto pt-8 mb-4 xl:justify-center xl:flex xl:space-x-4 xl:mb-0"}>
                 <DiscordComponent/>
-                <div className="flex justify-center max-w-2/3 mx-auto xl:mx-0">
+                <div className="flex justify-center xl:max-w-2/3 mx-auto xl:mx-0">
                     <div className="text-white">
                         <h1 className="font-semibold text-2xl">now</h1>
                         <div>
