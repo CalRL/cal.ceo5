@@ -8,7 +8,7 @@ export function ActivitiesComponent() {
     useEffect(() => {
         async function getActivities() {
             try {
-                const res = await fetch("http://localhost:3000/api/discord/activities", {
+                const res = await fetch("https://api.cal.ceo/api/discord/activities", {
                     headers: {
                         "Cache-Control": "no-cache",
                     },

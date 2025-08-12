@@ -10,7 +10,7 @@ export function DiscordComponent() {
     useEffect(() => {
         async function fetchStatus() {
             try {
-                const res = await fetch("http://localhost:3000/api/discord", {
+                const res = await fetch("https://api.cal.ceo/api/discord", {
                     headers: {
                         "Cache-Control": "no-cache",
                     },

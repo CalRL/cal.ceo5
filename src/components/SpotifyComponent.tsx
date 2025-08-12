@@ -27,7 +27,7 @@ export function MessageComponent() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await fetch("http://localhost:3000/api/spotify", {
+                const res = await fetch("https://api.cal.ceo/api/spotify", {
                     headers: {
                         "Cache-Control": "no-cache",
                     },
