@@ -49,7 +49,7 @@ export function ActivityComponent({ activity }: ActivityProps) {
                     <div className="text-sm text-zinc-400">{activity.state}</div>
                 )}
                 <div className={"text-green-400"}>
-                    <Timer since={activity.timestamps.start} />
+                    {activity.timestamps.start && <Timer since={activity.timestamps.start} />}
                 </div>
 
             </div>
