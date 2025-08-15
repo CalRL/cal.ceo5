@@ -24,14 +24,14 @@ export function ActivityComponent({ activity }: ActivityProps) {
                 <div className="relative min-w-[80px] max-w-[80px] 2xl:block mx-auto 2xl:mx-0">
                     {largeImage && (<img
                         src={largeImage}
-                        alt="Large"
+                        alt=""
                         className="w-20 h-20 rounded-lg object-cover"
                     />)}
                     {/* Small overlay image */}
                     {smallImage && (
                         <img
                             src={smallImage}
-                            alt="Small"
+                            alt=""
                             className="w-6 h-6 rounded-full absolute bottom-0 right-0 border border-zinc-900"
                         />
                     )}
@@ -48,9 +48,11 @@ export function ActivityComponent({ activity }: ActivityProps) {
                 {activity.state && (
                     <div className="text-sm text-zinc-400">{activity.state}</div>
                 )}
-                <div className={"text-green-400"}>
-                    {activity.timestamps.start && <Timer since={activity.timestamps.start} />}
-                </div>
+                {activity.timestamps &&
+                    <div className={"text-green-400"}>
+                        <Timer since={activity.timestamps.start} />
+                    </div>
+                }
 
             </div>
         </div>
