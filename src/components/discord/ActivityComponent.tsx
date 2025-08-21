@@ -1,29 +1,58 @@
 import type {Activity} from "../../types/LanyardResponse.ts";
 import {Timer} from "../Timer.tsx";
+import React from "react";
 
 export type ActivityProps = {
     activity: Activity;
 }
 
+function toValidUrlOrNull(s?: string | null): string | null {
+    if (!s) return null;
+    try {
+        const u = new URL(s);
+        return (u.protocol === 'http:' || u.protocol === 'https:') ? u.toString() : null;
+    } catch {
+        return null;
+    }
+}
+
+async function pickActivityImage({activity}: ActivityProps) {
+    const assets = activity.assets;
+    const stripped = assets?.large_image ? stripDiscordMediaProxy(assets.large_image) : null;
+    const largeImage = toValidUrlOrNull(stripped);
+    console.log("pickActivityImage", largeImage);
+
+    if(largeImage) return largeImage;
+    console.log("using dustin :3")
+    return `https://dcdn.dstn.to/app-icons/${activity.application_id}?size=256`;
+}
 
 export function ActivityComponent({ activity }: ActivityProps) {
+    const [source, setSource] = React.useState("");
     const assets = activity.assets;
 
-    const largeImage = assets?.large_image
-        ? stripDiscordMediaProxy(assets.large_image)
-        : null;
+    React.useEffect(() => {
+        async function getImage() {
+            const image = await pickActivityImage({ activity });
+            setSource(image);
+        }
+
+        getImage()
+    }, [])
 
     const smallImage = assets?.small_image
         ? stripDiscordMediaProxy(assets.small_image)
         : null;
+
+    if(!source) return null;
 
     return (
         <div className="border-white/20 border bg-zinc-900 text-white rounded-xl shadow-lg p-4 gap-4 items-center max-w-md w-full block lg:flex">
             {/* Large image */}
             <div className={""}>
                 <div className="relative min-w-[80px] max-w-[80px] 2xl:block mx-auto 2xl:mx-0">
-                    {largeImage && (<img
-                        src={largeImage}
+                    {source && (<img
+                        src={source}
                         alt=""
                         className="w-20 h-20 rounded-lg object-cover"
                     />)}
