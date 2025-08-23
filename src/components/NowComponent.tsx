@@ -1,7 +1,6 @@
 import {SpotifyComponent} from "./SpotifyComponent.tsx";
 import {Watchlist} from "./letterboxd/Watchlist";
 import {DiscordComponent} from "./discord/DiscordComponent.tsx";
-import {SongComponent} from "./spotify/SongComponent.tsx";
 
 // const defaultClasses = "bg-[#2C2F33] rounded-3xl text-white p-4 border-white/10 border text-center";
 export function NowComponent() {
@@ -25,7 +24,6 @@ export function NowComponent() {
                         <SpotifyComponent/>
                     </div>
                 </div>
-                <SongComponent />
             </div>
         </>
     )
