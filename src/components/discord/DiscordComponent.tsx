@@ -1,41 +1,17 @@
-import {useEffect, useState} from "react";
 import {getColor, getStatusString} from "../../utils/discord.ts";
 import {ActivitiesComponent} from "./ActivitiesComponent.tsx";
 import {DiscordSkeleton} from "./DiscordSkeleton.tsx";
-import {api} from "../../axios.ts";
+import {useLanyard} from "./useLanyard.tsx";
+import type {Lanyard} from "../../types/LanyardResponse.ts";
 
 export function DiscordComponent() {
-    const [status, setStatus] = useState<string | null>(null)
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        async function fetchStatus() {
-            try {
-                const res = await api.get("/discord", {
-                    headers: {
-                        "Cache-Control": "no-cache",
-                    },
-                })
-                if (!res) {
-                    setError(true)
-                    return
-                }
+    const data: Lanyard | null = useLanyard("242276511028084738");
 
-                const json = await res.data
-                setStatus(json?.data ?? "Unknown");
-                setLoading(false);
-            } catch (err) {
-                console.error(err)
-                setError(true)
-            }
-        }
+    if(!data) {
+        return <DiscordSkeleton />;
+    }
 
-        fetchStatus()
-    }, [])
-
-    if (error) return <div>Failed to load Discord status.</div>
-
-    if (loading) return <DiscordSkeleton />;
+    const status: string = data.discord_status;
 
     const color = getColor(status)
     return (
@@ -62,7 +38,7 @@ export function DiscordComponent() {
 
                     </div>
                 </div>
-                <ActivitiesComponent />
+                <ActivitiesComponent activities={data.activities} />
             </div>
         </div>
 

@@ -17,6 +17,7 @@ export function Watchlist() {
                 setLoading(false);
             }
         }
+
         fetchMovies();
     }, []);
 

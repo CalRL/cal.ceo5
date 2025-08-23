@@ -18,12 +18,12 @@ function toValidUrlOrNull(s?: string | null): string | null {
 
 async function pickActivityImage({activity}: ActivityProps) {
     const assets = activity.assets;
+
     const stripped = assets?.large_image ? stripDiscordMediaProxy(assets.large_image) : null;
     const largeImage = toValidUrlOrNull(stripped);
-    console.log("pickActivityImage", largeImage);
 
     if(largeImage) return largeImage;
-    console.log("using dustin :3")
+
     return `https://dcdn.dstn.to/app-icons/${activity.application_id}?size=256`;
 }
 
