@@ -6,8 +6,6 @@ import {
   pythonIconProps,
   rustIconProps,
   spigotIconProps,
-  tailwindIconProps,
-  typescriptIconProps
 } from "../icons/defaults";
 
 export default function Projects() {
@@ -17,9 +15,9 @@ export default function Projects() {
       <div className="items-center flex justify-center">
         <div className="items-center grid xl:grid-cols-2 grid-cols-1">
           <Project {...HubblyProps} />
-          <Project {...JACRProps} />
-          <Project {...UnnamedProps} />
           <Project {...GammaEditorProps} />
+          <Project {...GVASViewerProps} />
+          <Project {...UnnamedProps} />
           <Project {...HermesProps} />
           <Project {...RaspiClientProps} />
           <Project {...GeneratorProps} />
@@ -36,22 +34,22 @@ const HubblyProps: ProjectProps = {
       javaIconProps,
       spigotIconProps
   ],
-  description: "All in one minecraft hub software. Extremely customizable, easy to use, and feature rich.",
+  description: "All in one minecraft hub software. Extremely customizable, easy to use, and feature rich. 15.000+ downloads.",
   imageUrl: "/images/hubbly.png",
   imageAlt: "Hubbly icon",
   coverOrContain: "object-cover"
 }
 
-const JACRProps: ProjectProps = {
-  name: "JustAnotherChatRoom",
-  link: "https://github.com/calrl/JustAnotherChatRoom",
+const GVASViewerProps: ProjectProps = {
+  name: "gvas-viewer",
+  link: "https://github.com/calrl/Hubbly",
   iconProps: [
-    javaIconProps
+    rustIconProps
   ],
-  description: "A university assignment, working with networks, IO, and GUIs",
-  imageUrl: "/images/github.jpg",
-  imageAlt: "GitHub logo",
-  coverOrContain: "object-contain"
+  description: "A Unreal Engine 4/5 Save File (GVAS) Viewer with a familiar JSON editor.",
+  imageUrl: "",
+  imageAlt: "",
+  coverOrContain: "object-cover"
 }
 
 const UnnamedProps: ProjectProps = {
@@ -72,10 +70,8 @@ const GammaEditorProps: ProjectProps = {
   link: "https://github.com/calrl/gammaeditor",
   iconProps: [
       rustIconProps,
-      tailwindIconProps,
-      typescriptIconProps,
   ],
-  description: "(WIP) An editor tool to Gamma Emerald save files. Also allows exporting to PKHeX format. ",
+  description: "An editor tool for Gamma Emerald save files. Also allows exporting to PKHeX format. ",
   imageUrl: "/images/gamma_emerald.png",
   imageAlt: "Gamma Emerald Homescreen",
   coverOrContain: "object-contain"
