@@ -17,14 +17,8 @@ export default function BlogPage() {
     useEffect(() => {
         async function loadPosts() {
             try {
-                const res = await fetch("http://localhost:4000/api/blog");
-
-                if (!res.ok) {
-                    throw new Error("Failed to load posts");
-                }
-
-                const data = await res.json();
-                setPosts(data);
+                const res = await api.get("/blog");
+                setPosts(res.data);
             } catch (error) {
                 console.error(error);
             } finally {

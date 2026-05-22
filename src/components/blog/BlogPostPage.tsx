@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { api } from "../../axios.js";
 
 type BlogPost = {
     title: string;
@@ -24,14 +25,8 @@ export default function BlogPostPage() {
             if (!slug) return;
 
             try {
-                const res = await fetch(`http://localhost:4000/api/blog/${slug}`);
-
-                if (!res.ok) {
-                    throw new Error("Failed to load post");
-                }
-
-                const data = await res.json();
-                setPost(data);
+                const res = await api.get(`/blog/${slug}`);
+                setPost(res.data);
             } catch (error) {
                 console.error(error);
                 setPost(null);
