@@ -20,7 +20,7 @@ export function AboutComponent() {
                 <span className="">MSc</span> {" "}
                 <span className="text-yellow-400">computing + ai </span>
                 <span>@{" "}</span>
-                <span className="text-yellow-200">?</span>
+                <span className="text-yellow-200">uni of york</span>
               </div>
 
               <div>I do frontend, backend, and machine learning </div>
