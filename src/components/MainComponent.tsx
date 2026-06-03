@@ -6,6 +6,8 @@ import {Other} from "./Other.tsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Navbar} from "./Navbar.tsx";
 import {NowComponent} from "./NowComponent.tsx";
+import BlogPage from "./blog/BlogPage.tsx";
+import BlogPostPage from "./blog/BlogPostPage.tsx";
 
 // const url = "https://api.lanyard.rest/v1/users/242276511028084738";
 
@@ -23,6 +25,8 @@ export const MainComponent: React.FC = () => {
             <Route path={"/projects"} element={<Projects />} />
             <Route path={"/other"} element={<Other/>} />
             <Route path={"/now"} element={< NowComponent />}/>
+            <Route path={"/blog/:slug"} element={<BlogPostPage/>}/>
+            <Route path={"/blog"} element={<BlogPage/>}/>
           </Routes>
         </BrowserRouter>
       </div>
