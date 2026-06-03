@@ -33,12 +33,6 @@ export function Navbar() {
             }}>
                 Blog
             </Link>
-
-            <Link className={hoverStyle} to={{
-                pathname: "/other",
-            }}>
-                Other
-            </Link>
         </>
 
     )
